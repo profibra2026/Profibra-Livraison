@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PROFIBRA — Suivi Livraisons</title>
+<title>PROFIBRA - Suivi Livraisons</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;background:#f5f5f5;color:#1a1a1a}
@@ -16,7 +16,7 @@ body{font-family:Arial,sans-serif;background:#f5f5f5;color:#1a1a1a}
 .nav{background:#fff;border-bottom:1px solid #e5e7eb;display:flex;padding:0 20px;gap:2px;position:sticky;top:62px;z-index:40}
 .nb{background:none;border:none;border-bottom:3px solid transparent;padding:14px 18px;font-size:13px;color:#6b7280;cursor:pointer;white-space:nowrap}
 .nb.active{color:#1a1a1a;border-bottom-color:#e8a020;font-weight:600}
-.nb:hover:not(.active){color:#1a1a1a;background:#f9fafb}
+.nb:hover{color:#1a1a1a;background:#f9fafb}
 .content{padding:24px}
 .pg{display:none}.pg.on{display:block}
 .kgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
@@ -29,7 +29,7 @@ body{font-family:Arial,sans-serif;background:#f5f5f5;color:#1a1a1a}
 .ct{font-size:14px;font-weight:600;color:#1a1a1a}
 .btn{background:#f3f4f6;border:1px solid #d1d5db;border-radius:8px;padding:8px 14px;font-size:13px;color:#1a1a1a;cursor:pointer}
 .btn:hover{background:#e5e7eb}
-.btn.p{background:#1a1a1a;color:#fff;border-color:#1a1a1a}.btn.p:hover{background:#333}
+.btn.p{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
 .btn.d{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
 .btn.s{padding:5px 10px;font-size:12px}
 table{width:100%;border-collapse:collapse;font-size:13px}
@@ -48,16 +48,15 @@ tr:hover td{background:#f9fafb}
 .mbox{background:#fff;border-radius:14px;border:1px solid #e5e7eb;max-width:600px;margin:0 auto}
 .mhd{padding:18px 22px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e7eb}
 .mhd h3{font-size:15px;font-weight:600;color:#1a1a1a}
-.mcl{background:none;border:none;font-size:22px;cursor:pointer;color:#9ca3af;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;line-height:1}
-.mcl:hover{background:#f3f4f6}
-.mbd{padding:20px 22px;background:#fff}
+.mcl{background:none;border:none;font-size:22px;cursor:pointer;color:#9ca3af;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px}
+.mbd{padding:20px 22px}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .ff{display:flex;flex-direction:column;gap:5px}
 .ff.full{grid-column:1/-1}
 .ff label{font-size:12px;color:#6b7280;font-weight:600}
 .ff input,.ff select,.ff textarea{font-size:13px;padding:8px 10px;border-radius:8px;border:1px solid #d1d5db;background:#fff;color:#1a1a1a;width:100%}
 .ff textarea{resize:vertical;min-height:68px}
-.mft{padding:14px 22px 18px;display:flex;justify-content:flex-end;gap:8px;border-top:1px solid #e5e7eb;background:#fff;border-radius:0 0 14px 14px}
+.mft{padding:14px 22px 18px;display:flex;justify-content:flex-end;gap:8px;border-top:1px solid #e5e7eb}
 .alist{display:flex;flex-direction:column;gap:10px}
 .ai{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:10px;border:1px solid}
 .ai.w{background:#fffbeb;border-color:#fcd34d}
@@ -77,12 +76,6 @@ tr:hover td{background:#f9fafb}
 .pb{height:7px;background:#f3f4f6;border-radius:4px;overflow:hidden;margin-top:5px}
 .pf{height:100%;border-radius:4px}
 .empty{text-align:center;padding:40px;color:#9ca3af;font-size:13px}
-@media(max-width:768px){
-  .kgrid{grid-template-columns:repeat(2,1fr)}
-  .dgrid{grid-template-columns:1fr 1fr}
-  .fgrid{grid-template-columns:1fr}
-  .ff.full{grid-column:1}
-}
 </style>
 </head>
 <body>
@@ -109,23 +102,34 @@ tr:hover td{background:#f9fafb}
     <div class="mhd"><h3 id="mtitle">Nouvelle livraison</h3><button class="mcl" id="btnCloseLiv">&#x2715;</button></div>
     <div class="mbd">
       <div class="fgrid">
-        <div class="ff"><label>N&#xb0; Livraison *</label><input id="fn"></div>
-        <div class="ff"><label>Date planifi&#xe9;e *</label><input type="date" id="fd"></div>
-        <div class="ff"><label>Date r&#xe9;elle</label><input type="date" id="fdr"></div>
-        <div class="ff"><label>Heure d&#xe9;part</label><input type="time" id="fdep"></div>
-        <div class="ff"><label>Heure arriv&#xe9;e</label><input type="time" id="farr"></div>
+        <div class="ff"><label>N&#xB0; Livraison *</label><input id="fn"></div>
+        <div class="ff"><label>Date planifi&#xE9;e *</label><input type="date" id="fd"></div>
+        <div class="ff"><label>Date r&#xE9;elle</label><input type="date" id="fdr"></div>
+        <div class="ff"><label>Heure d&#xE9;part</label><input type="time" id="fdep"></div>
+        <div class="ff"><label>Heure arriv&#xE9;e</label><input type="time" id="farr"></div>
         <div class="ff"><label>Chauffeur *</label><select id="fch"></select></div>
-        <div class="ff"><label>V&#xe9;hicule / Immat.</label><input id="fv"></div>
-        <div class="ff"><label>N&#xb0; Bon de commande</label><input id="fbc"></div>
+        <div class="ff"><label>V&#xE9;hicule / Immat.</label><input id="fv"></div>
+        <div class="ff"><label>N&#xB0; Bon de commande</label><input id="fbc"></div>
         <div class="ff"><label>Client / Destinataire</label><input id="fcl"></div>
         <div class="ff"><label>Ville de livraison</label><input id="fvi"></div>
-        <div class="ff"><label>R&#xe9;gion / Zone</label><input id="frg"></div>
-        <div class="ff"><label>Statut</label><select id="fst"><option>Planifi&#xe9;</option><option>En cours</option><option>Fait</option><option>Retard&#xe9;</option><option>Annul&#xe9;</option></select></div>
+        <div class="ff"><label>R&#xE9;gion / Zone</label><input id="frg"></div>
+        <div class="ff"><label>Statut</label>
+          <select id="fst">
+            <option value="Planifie">Planifi&#xE9;</option>
+            <option value="En cours">En cours</option>
+            <option value="Fait">Fait</option>
+            <option value="Retarde">Retard&#xE9;</option>
+            <option value="Annule">Annul&#xE9;</option>
+          </select>
+        </div>
         <div class="ff full"><label>Mission / Actions</label><textarea id="fm"></textarea></div>
         <div class="ff full"><label>Observations</label><textarea id="fob"></textarea></div>
       </div>
     </div>
-    <div class="mft"><button class="btn" id="btnCancelLiv">Annuler</button><button class="btn p" id="btnSaveLiv">Enregistrer</button></div>
+    <div class="mft">
+      <button class="btn" id="btnCancelLiv">Annuler</button>
+      <button class="btn p" id="btnSaveLiv">Enregistrer</button>
+    </div>
   </div>
 </div>
 
@@ -135,13 +139,22 @@ tr:hover td{background:#f9fafb}
     <div class="mbd">
       <div class="fgrid">
         <div class="ff full"><label>Nom complet *</label><input id="dnom"></div>
-        <div class="ff"><label>N&#xb0; CIN / Permis</label><input id="dcin"></div>
-        <div class="ff"><label>T&#xe9;l&#xe9;phone</label><input id="dtel"></div>
-        <div class="ff"><label>V&#xe9;hicule assign&#xe9;</label><input id="dveh"></div>
-        <div class="ff"><label>Disponibilit&#xe9;</label><select id="ddis"><option>Disponible</option><option>Occup&#xe9;</option><option>Cong&#xe9;</option></select></div>
+        <div class="ff"><label>N&#xB0; CIN / Permis</label><input id="dcin"></div>
+        <div class="ff"><label>T&#xE9;l&#xE9;phone</label><input id="dtel"></div>
+        <div class="ff"><label>V&#xE9;hicule assign&#xE9;</label><input id="dveh"></div>
+        <div class="ff"><label>Disponibilit&#xE9;</label>
+          <select id="ddis">
+            <option value="Disponible">Disponible</option>
+            <option value="Occupe">Occup&#xE9;</option>
+            <option value="Conge">Cong&#xE9;</option>
+          </select>
+        </div>
       </div>
     </div>
-    <div class="mft"><button class="btn" id="btnCancelDrv">Annuler</button><button class="btn p" id="btnSaveDrv">Enregistrer</button></div>
+    <div class="mft">
+      <button class="btn" id="btnCancelDrv">Annuler</button>
+      <button class="btn p" id="btnSaveDrv">Enregistrer</button>
+    </div>
   </div>
 </div>
 
@@ -149,7 +162,7 @@ tr:hover td{background:#f9fafb}
   <div class="kgrid" id="kgrid"></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
     <div class="card"><div class="ch"><span class="ct">Livraisons du jour</span></div><div id="tday"></div></div>
-    <div class="card"><div class="ch"><span class="ct">R&#xe9;partition par statut</span></div><div id="sbars"></div></div>
+    <div class="card"><div class="ch"><span class="ct">Repartition par statut</span></div><div id="sbars"></div></div>
   </div>
 </div>
 
@@ -158,263 +171,304 @@ tr:hover td{background:#f9fafb}
     <div class="ch"><span class="ct">Toutes les livraisons</span><button class="btn p" id="btnNewLiv">+ Nouvelle livraison</button></div>
     <div class="sbar">
       <input type="text" id="srch" placeholder="Rechercher...">
-      <select id="fst2"><option value="">Tous les statuts</option><option>Planifi&#xe9;</option><option>En cours</option><option>Fait</option><option>Retard&#xe9;</option><option>Annul&#xe9;</option></select>
+      <select id="fst2">
+        <option value="">Tous les statuts</option>
+        <option value="Planifie">Planifi&#xE9;</option>
+        <option value="En cours">En cours</option>
+        <option value="Fait">Fait</option>
+        <option value="Retarde">Retard&#xE9;</option>
+        <option value="Annule">Annul&#xE9;</option>
+      </select>
       <select id="fdr2"><option value="">Tous les chauffeurs</option></select>
     </div>
     <div style="overflow-x:auto"><table>
-      <thead><tr><th>N&#xb0;</th><th>Date planif.</th><th>Date r&#xe9;elle</th><th>D&#xe9;part</th><th>Arriv&#xe9;e</th><th>Chauffeur</th><th>V&#xe9;hicule</th><th>N&#xb0; BC</th><th>Client</th><th>Ville</th><th>R&#xe9;gion</th><th>Mission</th><th>Statut</th><th>Obs.</th><th>Actions</th></tr></thead>
+      <thead><tr>
+        <th>N&#xB0;</th><th>Date planif.</th><th>Date reelle</th><th>Depart</th><th>Arrivee</th>
+        <th>Chauffeur</th><th>Vehicule</th><th>N&#xB0; BC</th><th>Client</th><th>Ville</th>
+        <th>Region</th><th>Mission</th><th>Statut</th><th>Obs.</th><th>Actions</th>
+      </tr></thead>
       <tbody id="ltbody"></tbody>
     </table></div>
   </div>
 </div>
 
 <div class="pg" id="pg-drvs">
-  <div style="display:flex;justify-content:flex-end;margin-bottom:16px"><button class="btn p" id="btnNewDrv">+ Ajouter un chauffeur</button></div>
+  <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+    <button class="btn p" id="btnNewDrv">+ Ajouter un chauffeur</button>
+  </div>
   <div class="dgrid" id="dgrid"></div>
 </div>
 
 <div class="pg" id="pg-alertes">
-  <div class="card"><div class="ch"><span class="ct">Alertes &amp; Notifications</span></div><div class="alist" id="alist"></div></div>
+  <div class="card">
+    <div class="ch"><span class="ct">Alertes et Notifications</span></div>
+    <div class="alist" id="alist"></div>
+  </div>
 </div>
 </div>
 
 <script>
 (function() {
-  var SK = 'profibra_v1';
-  var DEF = {
-    livraisons: [
-      {id:1,num:'LIV-001',date:'2026-03-28',dR:'',dep:'07:00',arr:'',ch:'Mohammed Alami',veh:'Camion 01 / AB-123-CD',bc:'BC-2026-0045',cl:'Entreprise Atlas',vi:'Casablanca',rg:'Grand Casablanca',mi:'Livraison + dechargement',st:'Planifie',ob:''},
-      {id:2,num:'LIV-002',date:'2026-03-28',dR:'',dep:'09:30',arr:'',ch:'Youssef Benali',veh:'Camion 02 / EF-456-GH',bc:'BC-2026-0046',cl:'Societe Maghreb',vi:'Rabat',rg:'Rabat-Sale',mi:'Livraison urgente',st:'En cours',ob:'Client prioritaire'},
-      {id:3,num:'LIV-003',date:'2026-03-29',dR:'',dep:'06:30',arr:'',ch:'Karim Tazi',veh:'Camion 03 / IJ-789-KL',bc:'BC-2026-0047',cl:'Batisseurs du Nord',vi:'Tanger',rg:'Tanger-Tetouan',mi:'Livraison + pose',st:'Fait',ob:''},
-      {id:4,num:'LIV-004',date:'2026-03-29',dR:'',dep:'08:00',arr:'',ch:'Hassan Moukrim',veh:'Camion 04 / MN-012-OP',bc:'BC-2026-0048',cl:'Construc. Sahara',vi:'Marrakech',rg:'Marrakech-Safi',mi:'Livraison standard',st:'Planifie',ob:''},
-      {id:5,num:'LIV-005',date:'2026-03-30',dR:'',dep:'07:30',arr:'',ch:'Omar Filali',veh:'Camion 05 / QR-345-ST',bc:'BC-2026-0049',cl:'Groupe Horizon',vi:'Fes',rg:'Fes-Meknes',mi:'Livraison + retour palettes',st:'Planifie',ob:''}
-    ],
-    chauffeurs: [
-      {id:1,nom:'Mohammed Alami',cin:'CIN: AB123456',tel:'06 00 11 22 33',veh:'Camion 01 / AB-123-CD',dis:'Disponible'},
-      {id:2,nom:'Youssef Benali',cin:'CIN: CD789012',tel:'06 00 44 55 66',veh:'Camion 02 / EF-456-GH',dis:'Disponible'},
-      {id:3,nom:'Karim Tazi',cin:'CIN: EF345678',tel:'06 00 77 88 99',veh:'Camion 03 / IJ-789-KL',dis:'Disponible'},
-      {id:4,nom:'Hassan Moukrim',cin:'CIN: GH901234',tel:'06 00 10 20 30',veh:'Camion 04 / MN-012-OP',dis:'Disponible'},
-      {id:5,nom:'Omar Filali',cin:'CIN: IJ567890',tel:'06 00 40 50 60',veh:'Camion 05 / QR-345-ST',dis:'Disponible'}
-    ],
-    nx: 6
+
+var SK = "profibra_v1";
+var DEF = {
+  livraisons: [
+    {id:1,num:"LIV-001",date:"2026-03-28",dR:"",dep:"07:00",arr:"",ch:"Mohammed Alami",veh:"Camion 01 / AB-123-CD",bc:"BC-2026-0045",cl:"Entreprise Atlas",vi:"Casablanca",rg:"Grand Casablanca",mi:"Livraison + dechargement",st:"Planifie",ob:""},
+    {id:2,num:"LIV-002",date:"2026-03-28",dR:"",dep:"09:30",arr:"",ch:"Youssef Benali",veh:"Camion 02 / EF-456-GH",bc:"BC-2026-0046",cl:"Societe Maghreb",vi:"Rabat",rg:"Rabat-Sale",mi:"Livraison urgente",st:"En cours",ob:"Client prioritaire"},
+    {id:3,num:"LIV-003",date:"2026-03-29",dR:"",dep:"06:30",arr:"",ch:"Karim Tazi",veh:"Camion 03 / IJ-789-KL",bc:"BC-2026-0047",cl:"Batisseurs du Nord",vi:"Tanger",rg:"Tanger-Tetouan",mi:"Livraison + pose",st:"Fait",ob:""},
+    {id:4,num:"LIV-004",date:"2026-03-29",dR:"",dep:"08:00",arr:"",ch:"Hassan Moukrim",veh:"Camion 04 / MN-012-OP",bc:"BC-2026-0048",cl:"Construc. Sahara",vi:"Marrakech",rg:"Marrakech-Safi",mi:"Livraison standard",st:"Planifie",ob:""},
+    {id:5,num:"LIV-005",date:"2026-03-30",dR:"",dep:"07:30",arr:"",ch:"Omar Filali",veh:"Camion 05 / QR-345-ST",bc:"BC-2026-0049",cl:"Groupe Horizon",vi:"Fes",rg:"Fes-Meknes",mi:"Livraison + retour palettes",st:"Planifie",ob:""}
+  ],
+  chauffeurs: [
+    {id:1,nom:"Mohammed Alami",cin:"CIN: AB123456",tel:"06 00 11 22 33",veh:"Camion 01 / AB-123-CD",dis:"Disponible"},
+    {id:2,nom:"Youssef Benali",cin:"CIN: CD789012",tel:"06 00 44 55 66",veh:"Camion 02 / EF-456-GH",dis:"Disponible"},
+    {id:3,nom:"Karim Tazi",cin:"CIN: EF345678",tel:"06 00 77 88 99",veh:"Camion 03 / IJ-789-KL",dis:"Disponible"},
+    {id:4,nom:"Hassan Moukrim",cin:"CIN: GH901234",tel:"06 00 10 20 30",veh:"Camion 04 / MN-012-OP",dis:"Disponible"},
+    {id:5,nom:"Omar Filali",cin:"CIN: IJ567890",tel:"06 00 40 50 60",veh:"Camion 05 / QR-345-ST",dis:"Disponible"}
+  ],
+  nx: 6
+};
+
+function ld() {
+  try { var r = localStorage.getItem(SK); return r ? JSON.parse(r) : JSON.parse(JSON.stringify(DEF)); }
+  catch(e) { return JSON.parse(JSON.stringify(DEF)); }
+}
+function sv(d) { try { localStorage.setItem(SK, JSON.stringify(d)); } catch(e) {} }
+
+var D = ld();
+var eid = null;
+
+var LABEL = {Planifie:"Planifie",  "En cours":"En cours", Fait:"Fait", Retarde:"Retarde", Annule:"Annule"};
+var BADGE = {Planifie:"bp", "En cours":"be", Fait:"bf", Retarde:"br", Annule:"ba"};
+var COLOR = {Planifie:"#3b82f6", "En cours":"#f59e0b", Fait:"#22c55e", Retarde:"#ef4444", Annule:"#9ca3af"};
+
+function bc(s) { return "bg " + (BADGE[s] || "bp"); }
+function ini(n) { return n.split(" ").map(function(w){return w[0]||"";}).slice(0,2).join("").toUpperCase(); }
+function fd(d) { return d ? d.split("-").reverse().join("/") : "-"; }
+function gv(id) { return document.getElementById(id).value.trim(); }
+function el(id) { return document.getElementById(id); }
+
+function go(p) {
+  ["db","liv","drvs","alertes"].forEach(function(x) {
+    el("pg-"+x).classList.remove("on");
+    el("nav-"+x).classList.remove("active");
+  });
+  el("pg-"+p).classList.add("on");
+  el("nav-"+p).classList.add("active");
+  if(p==="db") rDB();
+  if(p==="liv") { fillF(); rTable(); }
+  if(p==="drvs") rDrvs();
+  if(p==="alertes") rAlerts();
+}
+
+function rDB() {
+  var c = {Planifie:0,"En cours":0,Fait:0,Retarde:0,Annule:0};
+  D.livraisons.forEach(function(l){ if(c[l.st]!==undefined) c[l.st]++; });
+  var tot = D.livraisons.length;
+  el("kgrid").innerHTML = [
+    {l:"Total livraisons",v:tot,s:"Toutes dates"},
+    {l:"Planifiees",v:c.Planifie,s:"A effectuer"},
+    {l:"En cours",v:c["En cours"],s:"En deplacement"},
+    {l:"Faites",v:c.Fait,s:"Terminees"},
+    {l:"Retardees",v:c.Retarde,s:"A surveiller"}
+  ].map(function(k){ return "<div class='kpi'><div class='kl'>"+k.l+"</div><div class='kv'>"+k.v+"</div><div class='ks'>"+k.s+"</div></div>"; }).join("");
+
+  var today = new Date().toISOString().split("T")[0];
+  var tl = D.livraisons.filter(function(l){ return l.date===today; });
+  el("tday").innerHTML = tl.length===0
+    ? "<div class='empty'>Aucune livraison planifiee aujourd'hui</div>"
+    : tl.map(function(l){
+        return "<div style='display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6'>"
+          +"<div><div style='font-size:13px;font-weight:600'>"+l.num+" - "+l.vi+"</div>"
+          +"<div style='font-size:12px;color:#9ca3af;margin-top:2px'>"+l.ch+" - "+(l.dep||"-")+"</div></div>"
+          +"<span class='"+bc(l.st)+"'>"+l.st+"</span></div>";
+      }).join("");
+
+  el("sbars").innerHTML = ["Planifie","En cours","Fait","Retarde","Annule"].map(function(s){
+    var pct = tot ? Math.round(c[s]/tot*100) : 0;
+    return "<div style='margin-bottom:14px'>"
+      +"<div style='display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px'>"
+      +"<span style='color:#9ca3af'>"+s+"</span><span style='font-weight:600'>"+c[s]+"</span></div>"
+      +"<div class='pb'><div class='pf' style='width:"+pct+"%;background:"+(COLOR[s]||"#888")+"'></div></div></div>";
+  }).join("");
+}
+
+function fillF() {
+  var drivers = [];
+  D.livraisons.forEach(function(l){ if(drivers.indexOf(l.ch)===-1) drivers.push(l.ch); });
+  drivers.sort();
+  el("fdr2").innerHTML = "<option value=''>Tous les chauffeurs</option>"
+    + drivers.map(function(d){ return "<option>"+d+"</option>"; }).join("");
+}
+
+function rTable() {
+  var srch = el("srch").value.toLowerCase();
+  var st = el("fst2").value;
+  var dr = el("fdr2").value;
+  var rows = D.livraisons.filter(function(l){
+    if(st && l.st!==st) return false;
+    if(dr && l.ch!==dr) return false;
+    if(srch && JSON.stringify(l).toLowerCase().indexOf(srch)===-1) return false;
+    return true;
+  });
+  var tb = el("ltbody");
+  if(!rows.length) { tb.innerHTML="<tr><td colspan='15' style='text-align:center;padding:32px;color:#9ca3af'>Aucune livraison trouvee</td></tr>"; return; }
+  tb.innerHTML = rows.map(function(l){
+    return "<tr>"
+      +"<td style='font-weight:600;white-space:nowrap'>"+l.num+"</td>"
+      +"<td style='white-space:nowrap'>"+fd(l.date)+"</td>"
+      +"<td style='white-space:nowrap'>"+fd(l.dR)+"</td>"
+      +"<td>"+(l.dep||"-")+"</td><td>"+(l.arr||"-")+"</td>"
+      +"<td style='white-space:nowrap'>"+l.ch+"</td>"
+      +"<td style='white-space:nowrap;color:#6b7280;font-size:12px'>"+l.veh+"</td>"
+      +"<td style='white-space:nowrap;color:#6b7280;font-size:12px'>"+l.bc+"</td>"
+      +"<td>"+l.cl+"</td><td>"+l.vi+"</td>"
+      +"<td style='color:#6b7280;font-size:12px'>"+l.rg+"</td>"
+      +"<td style='max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap'>"+l.mi+"</td>"
+      +"<td><span class='"+bc(l.st)+"'>"+l.st+"</span></td>"
+      +"<td style='max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#6b7280;font-size:12px'>"+(l.ob||"-")+"</td>"
+      +"<td style='white-space:nowrap'>"
+      +"<button class='btn s' data-id='"+l.id+"' data-action='edit'>Modifier</button> "
+      +"<button class='btn s d' data-id='"+l.id+"' data-action='del'>Suppr.</button>"
+      +"</td></tr>";
+  }).join("");
+
+  tb.querySelectorAll("button[data-action='edit']").forEach(function(b){
+    b.addEventListener("click", function(){ openLiv(parseInt(this.getAttribute("data-id"))); });
+  });
+  tb.querySelectorAll("button[data-action='del']").forEach(function(b){
+    b.addEventListener("click", function(){ delL(parseInt(this.getAttribute("data-id"))); });
+  });
+}
+
+function openLiv(id) {
+  eid = id || null;
+  el("fch").innerHTML = D.chauffeurs.map(function(c){ return "<option>"+c.nom+"</option>"; }).join("");
+  if(eid) {
+    var l = null;
+    D.livraisons.forEach(function(x){ if(x.id===eid) l=x; });
+    el("mtitle").textContent = "Modifier la livraison";
+    el("fn").value=l.num; el("fd").value=l.date; el("fdr").value=l.dR||"";
+    el("fdep").value=l.dep||""; el("farr").value=l.arr||"";
+    el("fch").value=l.ch; el("fv").value=l.veh; el("fbc").value=l.bc;
+    el("fcl").value=l.cl; el("fvi").value=l.vi; el("frg").value=l.rg;
+    el("fm").value=l.mi; el("fst").value=l.st; el("fob").value=l.ob;
+  } else {
+    el("mtitle").textContent = "Nouvelle livraison";
+    ["fn","fd","fdr","fdep","farr","fv","fbc","fcl","fvi","frg","fm","fob"].forEach(function(i){ el(i).value=""; });
+    el("fst").value = "Planifie";
+    el("fn").value = "LIV-00" + D.nx;
+  }
+  el("mliv").classList.add("on");
+  el("mliv").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function closeLiv() { el("mliv").classList.remove("on"); }
+
+function saveLiv() {
+  var obj = {
+    num:gv("fn"),date:gv("fd"),dR:gv("fdr"),dep:gv("fdep"),arr:gv("farr"),
+    ch:gv("fch"),veh:gv("fv"),bc:gv("fbc"),cl:gv("fcl"),vi:gv("fvi"),
+    rg:gv("frg"),mi:gv("fm"),st:el("fst").value,ob:gv("fob")
   };
-
-  function ld() { try { var r = localStorage.getItem(SK); return r ? JSON.parse(r) : JSON.parse(JSON.stringify(DEF)); } catch(e) { return JSON.parse(JSON.stringify(DEF)); } }
-  function sv(d) { try { localStorage.setItem(SK, JSON.stringify(d)); } catch(e) {} }
-
-  var D = ld();
-  var eid = null;
-
-  var STC = {'Planifie':'#3b82f6','En cours':'#f59e0b','Fait':'#22c55e','Retarde':'#ef4444','Annule':'#9ca3af'};
-  var SBG = {'Planifie':'bp','En cours':'be','Fait':'bf','Retarde':'br','Annule':'ba'};
-
-  function bc(s) { return 'bg ' + (SBG[s] || 'bp'); }
-  function ini(n) { return n.split(' ').map(function(w){return w[0]||'';}).slice(0,2).join('').toUpperCase(); }
-  function fd(d) { return d ? d.split('-').reverse().join('/') : '—'; }
-  function gv(id) { return document.getElementById(id).value.trim(); }
-  function el(id) { return document.getElementById(id); }
-
-  function go(p) {
-    var pages = ['db','liv','drvs','alertes'];
-    pages.forEach(function(x) {
-      el('pg-'+x).classList.remove('on');
-      el('nav-'+x).classList.remove('active');
-    });
-    el('pg-'+p).classList.add('on');
-    el('nav-'+p).classList.add('active');
-    if(p==='db') rDB();
-    if(p==='liv') { fillF(); rTable(); }
-    if(p==='drvs') rDrvs();
-    if(p==='alertes') rAlerts();
-  }
-
-  function rDB() {
-    var c = {'Planifie':0,'En cours':0,'Fait':0,'Retarde':0,'Annule':0};
-    D.livraisons.forEach(function(l){ if(c[l.st]!==undefined) c[l.st]++; });
-    var tot = D.livraisons.length;
-    el('kgrid').innerHTML = [
-      {l:'Total livraisons',v:tot,s:'Toutes dates'},
-      {l:'Planifiées',v:c['Planifie'],s:'À effectuer'},
-      {l:'En cours',v:c['En cours'],s:'En déplacement'},
-      {l:'Faites',v:c['Fait'],s:'Terminées'},
-      {l:'Retardées',v:c['Retarde'],s:'À surveiller'}
-    ].map(function(k){ return '<div class="kpi"><div class="kl">'+k.l+'</div><div class="kv">'+k.v+'</div><div class="ks">'+k.s+'</div></div>'; }).join('');
-
-    var today = new Date().toISOString().split('T')[0];
-    var tl = D.livraisons.filter(function(l){ return l.date===today; });
-    el('tday').innerHTML = tl.length===0
-      ? '<div class="empty">Aucune livraison planifiée aujourd'hui</div>'
-      : tl.map(function(l){ return '<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6"><div><div style="font-size:13px;font-weight:600">'+l.num+' — '+l.vi+'</div><div style="font-size:12px;color:#9ca3af;margin-top:2px">'+l.ch+' · '+(l.dep||'—')+'</div></div><span class="'+bc(l.st)+'">'+l.st+'</span></div>'; }).join('');
-
-    el('sbars').innerHTML = ['Planifie','En cours','Fait','Retarde','Annule'].map(function(s){
-      var label = {'Planifie':'Planifié','En cours':'En cours','Fait':'Fait','Retarde':'Retardé','Annule':'Annulé'}[s];
-      var pct = tot ? Math.round(c[s]/tot*100) : 0;
-      return '<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:#9ca3af">'+label+'</span><span style="font-weight:600">'+c[s]+'</span></div><div class="pb"><div class="pf" style="width:'+pct+'%;background:'+(STC[s]||'#888')+'"></div></div></div>';
-    }).join('');
-  }
-
-  function fillF() {
-    var drivers = [];
-    D.livraisons.forEach(function(l){ if(drivers.indexOf(l.ch)===-1) drivers.push(l.ch); });
-    drivers.sort();
-    el('fdr2').innerHTML = '<option value="">Tous les chauffeurs</option>' + drivers.map(function(d){ return '<option>'+d+'</option>'; }).join('');
-  }
-
-  function rTable() {
-    var srch = el('srch').value.toLowerCase();
-    var st = el('fst2').value;
-    var dr = el('fdr2').value;
-    var stMap = {'Planifié':'Planifie','En cours':'En cours','Fait':'Fait','Retardé':'Retarde','Annulé':'Annule'};
-    var stKey = stMap[st] || st;
-    var rows = D.livraisons.filter(function(l){
-      if(stKey && l.st !== stKey) return false;
-      if(dr && l.ch !== dr) return false;
-      if(srch && JSON.stringify(l).toLowerCase().indexOf(srch)===-1) return false;
-      return true;
-    });
-    var tb = el('ltbody');
-    if(!rows.length){ tb.innerHTML='<tr><td colspan="15" style="text-align:center;padding:32px;color:#9ca3af">Aucune livraison trouvée</td></tr>'; return; }
-    var stLabel = {'Planifie':'Planifié','En cours':'En cours','Fait':'Fait','Retarde':'Retardé','Annule':'Annulé'};
-    tb.innerHTML = rows.map(function(l){
-      return '<tr><td style="font-weight:600;white-space:nowrap">'+l.num+'</td>'
-        +'<td style="white-space:nowrap">'+fd(l.date)+'</td>'
-        +'<td style="white-space:nowrap">'+fd(l.dR)+'</td>'
-        +'<td>'+(l.dep||'—')+'</td>'
-        +'<td>'+(l.arr||'—')+'</td>'
-        +'<td style="white-space:nowrap">'+l.ch+'</td>'
-        +'<td style="white-space:nowrap;color:#6b7280;font-size:12px">'+l.veh+'</td>'
-        +'<td style="white-space:nowrap;color:#6b7280;font-size:12px">'+l.bc+'</td>'
-        +'<td>'+l.cl+'</td><td>'+l.vi+'</td>'
-        +'<td style="color:#6b7280;font-size:12px">'+l.rg+'</td>'
-        +'<td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+l.mi+'</td>'
-        +'<td><span class="'+bc(l.st)+'">'+(stLabel[l.st]||l.st)+'</span></td>'
-        +'<td style="max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#6b7280;font-size:12px">'+(l.ob||'—')+'</td>'
-        +'<td style="white-space:nowrap">'
-        +'<button class="btn s" onclick="APP.openLiv('+l.id+')">Modifier</button> '
-        +'<button class="btn s d" onclick="APP.delL('+l.id+')">Suppr.</button>'
-        +'</td></tr>';
-    }).join('');
-  }
-
-  function openLiv(id) {
-    eid = id || null;
-    el('fch').innerHTML = D.chauffeurs.map(function(c){ return '<option>'+c.nom+'</option>'; }).join('');
-    var stLabel = {'Planifie':'Planifié','En cours':'En cours','Fait':'Fait','Retarde':'Retardé','Annule':'Annulé'};
-    if(eid) {
-      var l = null;
-      D.livraisons.forEach(function(x){ if(x.id===eid) l=x; });
-      el('mtitle').textContent = 'Modifier la livraison';
-      el('fn').value=l.num; el('fd').value=l.date; el('fdr').value=l.dR||'';
-      el('fdep').value=l.dep||''; el('farr').value=l.arr||'';
-      el('fch').value=l.ch; el('fv').value=l.veh; el('fbc').value=l.bc;
-      el('fcl').value=l.cl; el('fvi').value=l.vi; el('frg').value=l.rg;
-      el('fm').value=l.mi; el('fst').value=stLabel[l.st]||l.st; el('fob').value=l.ob;
-    } else {
-      el('mtitle').textContent = 'Nouvelle livraison';
-      ['fn','fd','fdr','fdep','farr','fv','fbc','fcl','fvi','frg','fm','fob'].forEach(function(i){ el(i).value=''; });
-      el('fst').value = 'Planifié';
-      el('fn').value = 'LIV-00' + D.nx;
+  if(!obj.num||!obj.date||!obj.ch) { alert("Champs obligatoires (*) manquants."); return; }
+  if(eid) {
+    for(var i=0;i<D.livraisons.length;i++){
+      if(D.livraisons[i].id===eid){ D.livraisons[i]=Object.assign({},D.livraisons[i],obj); break; }
     }
-    el('mliv').classList.add('on');
-    el('mliv').scrollIntoView({behavior:'smooth',block:'start'});
+  } else {
+    obj.id = D.nx++;
+    D.livraisons.push(obj);
   }
+  sv(D); closeLiv(); fillF(); rTable(); rDB(); notif();
+}
 
-  function closeLiv() { el('mliv').classList.remove('on'); }
+function delL(id) {
+  if(!confirm("Supprimer cette livraison ?")) return;
+  D.livraisons = D.livraisons.filter(function(l){ return l.id!==id; });
+  sv(D); rTable(); rDB(); notif();
+}
 
-  function saveLiv() {
-    var stKey = {'Planifié':'Planifie','En cours':'En cours','Fait':'Fait','Retardé':'Retarde','Annulé':'Annule'};
-    var obj = {
-      num:gv('fn'),date:gv('fd'),dR:gv('fdr'),dep:gv('fdep'),arr:gv('farr'),
-      ch:gv('fch'),veh:gv('fv'),bc:gv('fbc'),cl:gv('fcl'),vi:gv('fvi'),
-      rg:gv('frg'),mi:gv('fm'),st:stKey[gv('fst')]||gv('fst'),ob:gv('fob')
-    };
-    if(!obj.num||!obj.date||!obj.ch){ alert('Champs obligatoires (*) manquants.'); return; }
-    if(eid) {
-      for(var i=0;i<D.livraisons.length;i++){ if(D.livraisons[i].id===eid){ D.livraisons[i]=Object.assign({},D.livraisons[i],obj); break; } }
-    } else {
-      obj.id = D.nx++;
-      D.livraisons.push(obj);
-    }
-    sv(D); closeLiv(); fillF(); rTable(); rDB(); notif();
-  }
+function rDrvs() {
+  el("dgrid").innerHTML = D.chauffeurs.map(function(c){
+    var cl = c.dis==="Disponible"?"dbok":c.dis==="Conge"?"dbc":"dbn";
+    return "<div class='dc'><div class='dav'>"+ini(c.nom)+"</div>"
+      +"<div class='dn'>"+c.nom+"</div><div class='di'>"+c.veh+"</div>"
+      +"<div class='di'>"+c.tel+"</div><div class='di'>"+c.cin+"</div>"
+      +"<span class='db "+cl+"'>"+c.dis+"</span></div>";
+  }).join("");
+}
 
-  function delL(id) {
-    if(!confirm('Supprimer cette livraison ?')) return;
-    D.livraisons = D.livraisons.filter(function(l){ return l.id!==id; });
-    sv(D); rTable(); rDB(); notif();
-  }
+function openDrv() {
+  ["dnom","dcin","dtel","dveh"].forEach(function(i){ el(i).value=""; });
+  el("ddis").value="Disponible";
+  el("mdrv").classList.add("on");
+  el("mdrv").scrollIntoView({behavior:"smooth",block:"start"});
+}
 
-  function rDrvs() {
-    var cl = {'Disponible':'dbok','Occupé':'dbn','Congé':'dbc'};
-    el('dgrid').innerHTML = D.chauffeurs.map(function(c){
-      return '<div class="dc"><div class="dav">'+ini(c.nom)+'</div><div class="dn">'+c.nom+'</div><div class="di">'+c.veh+'</div><div class="di">'+c.tel+'</div><div class="di">'+c.cin+'</div><span class="db '+(cl[c.dis]||'dbok')+'">'+c.dis+'</span></div>';
-    }).join('');
-  }
+function closeDrv() { el("mdrv").classList.remove("on"); }
 
-  function openDrv() {
-    ['dnom','dcin','dtel','dveh'].forEach(function(i){ el(i).value=''; });
-    el('ddis').value='Disponible';
-    el('mdrv').classList.add('on');
-    el('mdrv').scrollIntoView({behavior:'smooth',block:'start'});
-  }
+function saveDrv() {
+  var nom = gv("dnom");
+  if(!nom) { alert("Nom obligatoire."); return; }
+  D.chauffeurs.push({id:D.nx++,nom:nom,cin:gv("dcin"),tel:gv("dtel"),veh:gv("dveh"),dis:el("ddis").value});
+  sv(D); closeDrv(); rDrvs();
+}
 
-  function closeDrv() { el('mdrv').classList.remove('on'); }
+function getAlerts() {
+  var today = new Date().toISOString().split("T")[0];
+  var a = [];
+  D.livraisons.forEach(function(l){
+    if(l.st==="Retarde") a.push({t:"r",i:"!",ti:"Retardee : "+l.num,s:l.cl+" - "+l.vi+" - "+l.ch});
+    if(l.st==="En cours") a.push({t:"i",i:"i",ti:"En cours : "+l.num,s:l.cl+" - "+l.vi+" - Depart "+(l.dep||"-")});
+    if(l.st==="Planifie"&&l.date===today) a.push({t:"w",i:"~",ti:"Planifiee aujourd'hui : "+l.num,s:l.cl+" - "+l.vi+" - "+l.ch});
+  });
+  return a;
+}
 
-  function saveDrv() {
-    var nom = gv('dnom');
-    if(!nom){ alert('Nom obligatoire.'); return; }
-    D.chauffeurs.push({id:D.nx++,nom:nom,cin:gv('dcin'),tel:gv('dtel'),veh:gv('dveh'),dis:el('ddis').value});
-    sv(D); closeDrv(); rDrvs();
-  }
+function notif() { el("nc").textContent = getAlerts().length; }
 
-  function getAlerts() {
-    var today = new Date().toISOString().split('T')[0];
-    var a = [];
-    D.livraisons.forEach(function(l){
-      if(l.st==='Retarde') a.push({t:'r',i:'!',ti:'Retardée : '+l.num,s:l.cl+' — '+l.vi+' · '+l.ch});
-      if(l.st==='En cours') a.push({t:'i',i:'i',ti:'En cours : '+l.num,s:l.cl+' — '+l.vi+' · Départ '+(l.dep||'—')});
-      if(l.st==='Planifie'&&l.date===today) a.push({t:'w',i:'~',ti:'Planifiée aujourd'hui : '+l.num,s:l.cl+' — '+l.vi+' · '+l.ch});
-    });
-    return a;
-  }
+function rAlerts() {
+  var a = getAlerts();
+  el("alist").innerHTML = a.length===0
+    ? "<div class='empty'>Aucune alerte active</div>"
+    : a.map(function(x){
+        return "<div class='ai "+x.t+"'><div class='aico'>"+x.i+"</div>"
+          +"<div><div class='att'>"+x.ti+"</div><div class='ats'>"+x.s+"</div></div></div>";
+      }).join("");
+}
 
-  function notif() { el('nc').textContent = getAlerts().length; }
+function clock() {
+  var n = new Date();
+  var days = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"];
+  var months = ["Jan","Fev","Mar","Avr","Mai","Jun","Jul","Aou","Sep","Oct","Nov","Dec"];
+  var d = days[n.getDay()];
+  var m = months[n.getMonth()];
+  var h = n.getHours().toString().padStart(2,"0");
+  var min = n.getMinutes().toString().padStart(2,"0");
+  el("clk").textContent = d+" "+n.getDate()+" "+m+" - "+h+":"+min;
+}
 
-  function rAlerts() {
-    var a = getAlerts();
-    el('alist').innerHTML = a.length===0
-      ? '<div class="empty">Aucune alerte active</div>'
-      : a.map(function(x){ return '<div class="ai '+x.t+'"><div class="aico">'+x.i+'</div><div><div class="att">'+x.ti+'</div><div class="ats">'+x.s+'</div></div></div>'; }).join('');
-  }
+el("nav-db").addEventListener("click", function(){ go("db"); });
+el("nav-liv").addEventListener("click", function(){ go("liv"); });
+el("nav-drvs").addEventListener("click", function(){ go("drvs"); });
+el("nav-alertes").addEventListener("click", function(){ go("alertes"); });
+el("btnAlertes").addEventListener("click", function(){ go("alertes"); });
+el("btnNewLiv").addEventListener("click", function(){ openLiv(null); });
+el("btnCloseLiv").addEventListener("click", closeLiv);
+el("btnCancelLiv").addEventListener("click", closeLiv);
+el("btnSaveLiv").addEventListener("click", saveLiv);
+el("btnNewDrv").addEventListener("click", openDrv);
+el("btnCloseDrv").addEventListener("click", closeDrv);
+el("btnCancelDrv").addEventListener("click", closeDrv);
+el("btnSaveDrv").addEventListener("click", saveDrv);
+el("srch").addEventListener("input", rTable);
+el("fst2").addEventListener("change", rTable);
+el("fdr2").addEventListener("change", rTable);
 
-  function clock() {
-    var n = new Date();
-    el('clk').textContent = n.toLocaleDateString('fr-MA',{weekday:'short',day:'2-digit',month:'short'})+' · '+n.toTimeString().slice(0,5);
-  }
-
-  // Attacher les evenements
-  el('nav-db').addEventListener('click', function(){ go('db'); });
-  el('nav-liv').addEventListener('click', function(){ go('liv'); });
-  el('nav-drvs').addEventListener('click', function(){ go('drvs'); });
-  el('nav-alertes').addEventListener('click', function(){ go('alertes'); });
-  el('btnAlertes').addEventListener('click', function(){ go('alertes'); });
-  el('btnNewLiv').addEventListener('click', function(){ openLiv(null); });
-  el('btnCloseLiv').addEventListener('click', closeLiv);
-  el('btnCancelLiv').addEventListener('click', closeLiv);
-  el('btnSaveLiv').addEventListener('click', saveLiv);
-  el('btnNewDrv').addEventListener('click', openDrv);
-  el('btnCloseDrv').addEventListener('click', closeDrv);
-  el('btnCancelDrv').addEventListener('click', closeDrv);
-  el('btnSaveDrv').addEventListener('click', saveDrv);
-  el('srch').addEventListener('input', rTable);
-  el('fst2').addEventListener('change', rTable);
-  el('fdr2').addEventListener('change', rTable);
-
-  window.APP = { openLiv: openLiv, delL: delL };
-
-  clock();
-  setInterval(clock, 30000);
-  go('db');
+clock();
+setInterval(clock, 30000);
+go("db");
 
 })();
 </script>
